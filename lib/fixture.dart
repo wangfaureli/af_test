@@ -1,6 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
-
 class Item {
   final String image;
   final String title;
