@@ -1,6 +1,7 @@
 import 'package:af_test/page/swip/swipeable_card_stack.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:af_test/page/swip//card_view.dart';
+import 'package:af_test/page/swip/card_view.dart';
 
 class Page2 extends StatefulWidget {
 
@@ -20,7 +21,7 @@ class _Page2State extends State<Page2> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(CupertinoIcons.chevron_back, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text('Histoire'),
@@ -33,7 +34,8 @@ class _Page2State extends State<Page2> {
             context: context,
             //add the first 3 cards
             items: const [
-              CardView(text: "First card"),
+              CardView(text: "1 card"
+              ),
               CardView(text: "Second card"),
               CardView(text: "Third card"),
             ],
@@ -63,20 +65,12 @@ class _Page2State extends State<Page2> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
-                  child: const Icon(Icons.chevron_left),
+                  child: const Icon(CupertinoIcons.multiply),
                   onPressed: () => _cardController.triggerSwipeLeft(),
                 ),
                 FloatingActionButton(
-                  child: const Icon(Icons.chevron_right),
+                  child: const Icon(CupertinoIcons.checkmark),
                   onPressed: () => _cardController.triggerSwipeRight(),
-                ),
-                FloatingActionButton(
-                  child: const Icon(Icons.arrow_upward),
-                  onPressed: () => _cardController.triggerSwipeUp(),
-                ),
-                FloatingActionButton(
-                  child: Icon(Icons.arrow_downward),
-                  onPressed: () => _cardController.triggerSwipeDown(),
                 ),
               ],
             ),

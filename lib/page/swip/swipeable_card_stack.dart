@@ -1,5 +1,3 @@
-library swipeable_card_stack;
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -140,7 +138,7 @@ class _CardsSectionState extends State<SwipeableCardsSection>
   Widget build(BuildContext context) {
     return Expanded(
         child: IgnorePointer(
-      ignoring: !enableSwipe,
+            ignoring: !enableSwipe,
       child: Stack(
         children: <Widget>[
           if (cards[2] != null) backCard(),
@@ -236,15 +234,17 @@ class _CardsSectionState extends State<SwipeableCardsSection>
 
   Widget frontCard() {
     return Align(
-        alignment: _controller.status == AnimationStatus.forward
-            ? CardsAnimation.frontCardDisappearAlignmentAnim(
-                    _controller, frontCardAlign)
+            alignment: _controller.status == AnimationStatus.forward
+                ? CardsAnimation.frontCardDisappearAlignmentAnim(
+                _controller, frontCardAlign)
                 .value
-            : frontCardAlign,
-        child: Transform.rotate(
-          angle: (pi / 180.0) * frontCardRot,
-          child: SizedBox.fromSize(size: cardsSize[0], child: cards[0]),
-        ));
+                : frontCardAlign,
+
+            child: Transform.rotate(
+              angle: (pi / 180.0) * frontCardRot,
+              child: SizedBox.fromSize(size: cardsSize[0], child: cards[0]),
+            )
+        );
   }
 
   void changeCardsOrder() {
